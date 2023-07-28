@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: somedb
+      MARIADB_USER: user
+      MARIADB_PASSWORD: password
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d/:rw
+      - ./db:/var/lib/mysql:rw
+    ports:
+      - 3306:3306
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8085:8080
