@@ -37,5 +37,13 @@ public class Dinossauro {
 
     @Column(name = "data_criacao", nullable = false)
     private LocalDateTime dataCriacao;
+
+    public Dinossauro(String nome, double altura, double peso, String especie, String localizacao) {
+        this.nome = nome;
+        this.altura = altura;
+        this.peso = peso;
+        this.especie = especie;
+        this.localizacao = localizacao;
+    }
 }
 
