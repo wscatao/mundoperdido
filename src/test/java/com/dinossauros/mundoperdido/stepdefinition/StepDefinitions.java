@@ -1,14 +1,28 @@
 package com.dinossauros.mundoperdido.stepdefinition;
 
+import com.dinossauros.mundoperdido.entity.Dinossauro;
 import com.dinossauros.mundoperdido.service.DinossauroService;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+import java.util.Map;
+
 public class StepDefinitions {
+
+    @DataTableType
+    public Dinossauro dinossauroEntry(Map<String, String> entry) {
+        return new Dinossauro(entry.get("nome"),
+                Double.parseDouble(entry.get("altura")),
+                Double.parseDouble(entry.get("peso")),
+                entry.get("especie"),
+                entry.get("localizacao"));
+    }
 
     @Autowired
     private DinossauroService service;
@@ -46,7 +60,7 @@ public class StepDefinitions {
     }
 
     @E("que o cliente quer inserir os dinossauros")
-    public void queOClienteQuerInserirOsDinossauros(DataTable dataTable) {
+    public void queOClienteQuerInserirOsDinossauros(List<Dinossauro> dinossauros) {
     }
 
 }
