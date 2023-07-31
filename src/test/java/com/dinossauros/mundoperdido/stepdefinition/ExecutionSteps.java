@@ -1,9 +1,12 @@
 package com.dinossauros.mundoperdido.stepdefinition;
 
+import com.dinossauros.mundoperdido.entity.Dinossauro;
 import com.dinossauros.mundoperdido.service.DinossauroService;
 import com.dinossauros.mundoperdido.state.DinossauroInformationScope;
 import io.cucumber.java.pt.Quando;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
@@ -25,7 +28,8 @@ public class ExecutionSteps {
 
     @Quando("o cliente chama o endpoint {string} para inclusao")
     public void oClienteChamaOEndpointParaInserir(String endpoint) {
-
+        var dinossauros = scope.getDinossauros();
+        dinossauros.forEach(dinossauro -> service.saveDinossauro(dinossauro, endpoint));
     }
 
     @Quando("o cliente chama o endpoint {string} para remocao com id {int}")

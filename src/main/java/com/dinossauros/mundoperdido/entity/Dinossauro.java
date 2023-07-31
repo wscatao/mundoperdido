@@ -37,7 +37,7 @@ public class Dinossauro {
     @Column(name = "localizacao", nullable = false)
     private String localizacao;
 
-    @Column(name = "data_criacao", nullable = false)
+    @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
     public Dinossauro(String nome, double altura, double peso, String especie, String localizacao) {

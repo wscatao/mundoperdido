@@ -6,14 +6,10 @@ import com.dinossauros.mundoperdido.state.DinossauroInformationScope;
 import io.cucumber.java.DataTableType;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
-import io.cucumber.java.pt.Entao;
-import io.cucumber.java.pt.Quando;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
-
-import static org.hamcrest.Matchers.*;
 
 public class ParameterSteps {
 
@@ -31,8 +27,8 @@ public class ParameterSteps {
                 entry.get("especie"),
                 entry.get("localizacao"));
     }
-    @E("que o cliente quer inserir os dinossauros")
+    @Dado("que o cliente quer inserir os dinossauros")
     public void queOClienteQuerInserirOsDinossauros(List<Dinossauro> dinossauros) {
+        scope.setDinossauros(dinossauros);
     }
-
 }
