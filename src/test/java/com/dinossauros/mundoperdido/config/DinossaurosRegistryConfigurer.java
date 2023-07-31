@@ -1,4 +1,4 @@
-package com.dinossauros.mundoperdido;
+package com.dinossauros.mundoperdido.config;
 
 import com.dinossauros.mundoperdido.entity.Dinossauro;
 import io.cucumber.core.api.TypeRegistry;

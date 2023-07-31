@@ -1,5 +1,6 @@
-package com.dinossauros.mundoperdido;
+package com.dinossauros.mundoperdido.config;
 
+import com.dinossauros.mundoperdido.MundoperdidoApplication;
 import io.cucumber.spring.CucumberContextConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
