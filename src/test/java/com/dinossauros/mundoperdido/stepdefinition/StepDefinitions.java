@@ -8,10 +8,13 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
+import org.hamcrest.Matchers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
+
+import static org.hamcrest.Matchers.*;
 
 public class StepDefinitions {
 
@@ -29,13 +32,12 @@ public class StepDefinitions {
 
     @Dado("que temos dinossauros cadastrados no sistema")
     public void queTemosDinossaurosCadastradosNoSistema() {
-
         service.isDinossaurosCadastrados();
     }
 
     @Quando("o cliente chama o endpoint {string} para consulta")
     public void oClienteChamaOEndpointParaConsulta(String endpoint) {
-
+        service.getData(endpoint).then().body("_embedded.dinossauros", hasSize(greaterThan(0)));
     }
 
     @Quando("o cliente chama o endpoint {string} para inclusao")
