@@ -23,4 +23,8 @@ public class DinossauroService {
     public void saveDinossauro(Dinossauro dinossauro, String endpoint) {
         client.saveDinossauro(dinossauro, endpoint);
     }
+
+    public Response deleteDinossauro(int id) {
+        return client.deleteDinossauro(id);
+    }
 }

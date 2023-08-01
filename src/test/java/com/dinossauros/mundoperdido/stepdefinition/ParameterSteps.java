@@ -31,4 +31,9 @@ public class ParameterSteps {
     public void queOClienteQuerInserirOsDinossauros(List<Dinossauro> dinossauros) {
         scope.setDinossauros(dinossauros);
     }
+
+    @Dado("que o cliente quer remover o dinossauro de id {int} do sistema")
+    public void queOClienteQuerRemoverODinossauroDoSistema(int id) {
+        scope.setResponse(service.deleteDinossauro(id));
+    }
 }

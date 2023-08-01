@@ -19,14 +19,13 @@ Funcionalidade: Executar operacoes de insercao, remocao e consulta de dinossauro
     Quando o cliente chama o endpoint '/dinossauros' para inclusao
     Entao o cliente tera '6' dinossauros cadastrados
 
-#  Delineacao do Cenario: Usuario remove dinossauros do sistema
-#    Quando o cliente chama o endpoint '/dinossauros' para remocao com id <id>
-#    Entao o cliente recebe como resposta o status <status>
-#
-#    Exemplos:
-#      | id | status |
-#      | 1  | 200    |
-#      | 2  | 200    |
-#      | 3  | 200    |
-#      | 4  | 400    |
-#      | 5  | 200    |
+  Delineacao do Cenario: Usuario remove dinossauros do sistema
+    Dado que o cliente quer remover o dinossauro de id <id> do sistema
+    Entao o cliente recebe como resposta o status <status>
+
+    Exemplos:
+      | id        | status |
+      | 1001      | 204    |
+      | 1002      | 204    |
+      | 1003      | 204    |
+      | 123456789 | 404    |

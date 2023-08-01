@@ -9,6 +9,8 @@ import org.assertj.core.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasSize;
 
 public class AssertionSteps {
 
@@ -30,6 +32,11 @@ public class AssertionSteps {
     }
     @E("o cliente recebe dados validos")
     public void oClienteRecebeDadosValidos() {
+        var response = scope.getResponse();
+        response.then().body("_embedded.dinossauros", hasSize(greaterThan(0))).statusCode(200);
+    }
 
+    @Entao("o cliente tera {string} dinossauros cadastrados")
+    public void oClienteTeraDinossaurosCadastrados(int arg0) {
     }
 }

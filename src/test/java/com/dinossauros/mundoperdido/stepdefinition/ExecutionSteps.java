@@ -32,8 +32,4 @@ public class ExecutionSteps {
         dinossauros.forEach(dinossauro -> service.saveDinossauro(dinossauro, endpoint));
     }
 
-    @Quando("o cliente chama o endpoint {string} para remocao com id {int}")
-    public void oClienteChamaOEndpointDinossaurosParaRemocaoComIdId(String endpoint, int id) {
-        System.out.println(endpoint + " " + id);
-    }
 }
